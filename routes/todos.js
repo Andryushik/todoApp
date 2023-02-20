@@ -5,7 +5,6 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
   const todos = await Todo.find({}).lean();
-  console.log(todos);
 
   res.render('index', {
     title: 'Todos list',
@@ -22,7 +21,6 @@ router.get('/create', (req, res) => {
 });
 
 router.post('/create', async (req, res) => {
-  console.log(req.body.title);
   const todo = new Todo({
     title: req.body.title,
   });
