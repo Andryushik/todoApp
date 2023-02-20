@@ -1,17 +1,23 @@
 {
-  "dependencies": {
-    "dotenv": "^16.0.3",
-    "mongodb": "^5.0.1"
-  },
   "name": "todoApp",
   "version": "1.0.0",
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "Andrei Popov",
   "license": "ISC",
-  "description": "todo training app"
+  "description": "todo app node.js express mongoose",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.7",
+    "mongoose": "^6.9.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
 }
