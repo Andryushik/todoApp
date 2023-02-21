@@ -2,9 +2,14 @@ import express from 'express';
 import mongoose from 'mongoose';
 import exphbs from 'express-handlebars';
 import * as dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import { default as todoRoutes } from './routes/todos.js';
 mongoose.set('strictQuery', true);
 dotenv.config();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const PORT = process.env.PORT || 3000;
 const mongoUrl = process.env.MONGODB_URL;
@@ -19,6 +24,8 @@ app.set('view engine', 'hbs');
 app.set('views', 'views');
 
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(todoRoutes);
 
 async function start() {
@@ -44,16 +51,5 @@ async function start() {
   // console.log('Connection closed');
   //}
 }
-
-// async function populationOfCountry(client, country) {
-//   const agg = [];
-
-//   const populationList = await client
-//     .db('databaseWeek4')
-//     .collection('population')
-//     .aggregate(agg)
-//     .toArray();
-//   console.log(populationList);
-// }
 
 start();
