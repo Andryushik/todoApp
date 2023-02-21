@@ -40,16 +40,9 @@ async function start() {
     app.listen(PORT, () => {
       console.log('Server has been started...');
     });
-    //
-
-    //
   } catch (err) {
     console.error(err);
   }
-  //finally {
-  // client.close();
-  // console.log('Connection closed');
-  //}
 }
 
 start();
